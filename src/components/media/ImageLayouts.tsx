@@ -102,43 +102,43 @@ export function BentoGallery({
   const [a, b, c, d] = images
 
   return (
-    <div className="grid grid-cols-12 grid-rows-6 gap-3 md:gap-4">
+    <div className="grid w-full min-w-0 grid-cols-2 gap-3 md:grid-cols-12 md:grid-rows-6 md:gap-4">
       {a && (
-        <div className="group col-span-12 row-span-3 overflow-hidden rounded-2xl md:col-span-7 md:row-span-4">
+        <div className="group col-span-2 min-w-0 overflow-hidden rounded-2xl md:col-span-7 md:row-span-4">
           <ImageFrame
             src={a}
             alt={`${altPrefix} project`}
-            aspect="aspect-[16/10] md:aspect-auto md:h-full min-h-[220px]"
+            aspect="aspect-[16/10] w-full md:aspect-auto md:h-full md:min-h-[220px]"
             position="center-top"
           />
         </div>
       )}
       {b && (
-        <div className="group col-span-6 row-span-2 overflow-hidden rounded-2xl md:col-span-5 md:row-span-2 md:col-start-8">
+        <div className="group min-w-0 overflow-hidden rounded-2xl md:col-span-5 md:col-start-8 md:row-span-2">
           <ImageFrame
             src={b}
             alt={`${altPrefix} detail`}
-            aspect="aspect-square md:aspect-auto md:h-full"
+            aspect="aspect-square w-full md:aspect-auto md:h-full"
             position="center"
           />
         </div>
       )}
       {c && (
-        <div className="group col-span-6 row-span-2 overflow-hidden rounded-2xl md:col-span-5 md:row-span-2 md:col-start-8 md:row-start-3">
+        <div className="group min-w-0 overflow-hidden rounded-2xl md:col-span-5 md:col-start-8 md:row-span-2 md:row-start-3">
           <ImageFrame
             src={c}
             alt={`${altPrefix} work`}
-            aspect="aspect-square md:aspect-auto md:h-full"
+            aspect="aspect-square w-full md:aspect-auto md:h-full"
             position="center-top"
           />
         </div>
       )}
       {d && (
-        <div className="group col-span-12 row-span-1 overflow-hidden rounded-2xl md:col-span-7 md:row-span-2 md:row-start-5">
+        <div className="group col-span-2 min-w-0 overflow-hidden rounded-2xl md:col-span-7 md:row-span-2 md:row-start-5">
           <ImageFrame
             src={d}
             alt={`${altPrefix} site`}
-            aspect="aspect-[21/9]"
+            aspect="aspect-[21/9] w-full md:h-full"
             position="center"
           />
         </div>
@@ -165,7 +165,7 @@ export function SplitImageStack({
         <ImageFrame
           src={main}
           alt={title}
-          aspect="aspect-[4/3] md:aspect-auto md:h-full min-h-[280px]"
+          aspect="aspect-[4/3] w-full md:aspect-auto md:h-full md:min-h-[280px]"
           position="center-top"
         />
       </div>
@@ -200,7 +200,7 @@ export function ImageFilmstrip({
   altPrefix?: string
 }) {
   return (
-    <div className="flex gap-3 overflow-x-auto pb-2 snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+    <div className="flex w-full min-w-0 gap-3 overflow-x-auto pb-2 snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
       {images.map((src, i) => (
         <div
           key={src}
@@ -345,31 +345,31 @@ export function ServiceImageCluster({
   right: string
 }) {
   return (
-    <div className="relative mx-auto aspect-[4/5] w-full max-w-md md:max-w-lg lg:max-w-none">
-      <div className="group absolute bottom-[6%] left-0 z-10 w-[38%] overflow-hidden rounded-xl shadow-lg ring-4 ring-paper">
+    <div className="relative mx-auto w-full min-w-0 max-w-lg pb-[16%] lg:max-w-none">
+      <div className="group relative z-10 w-[74%] overflow-hidden rounded-2xl shadow-xl">
         <ImageFrame
-          src={left}
+          src={center}
           alt=""
-          aspect="aspect-square"
+          aspect="aspect-[4/3]"
           position="center"
           loading="eager"
         />
       </div>
-      <div className="group relative z-20 mx-[14%] overflow-hidden rounded-xl shadow-xl">
-        <ImageFrame
-          src={center}
-          alt=""
-          aspect="aspect-square"
-          position="center-top"
-          loading="eager"
-        />
-      </div>
-      <div className="group absolute right-0 top-[6%] z-10 w-[40%] overflow-hidden rounded-xl shadow-lg ring-4 ring-paper">
+      <div className="group absolute top-[8%] right-0 z-20 w-[40%] overflow-hidden rounded-2xl shadow-lg ring-4 ring-paper">
         <ImageFrame
           src={right}
           alt=""
-          aspect="aspect-square"
-          position="center-top"
+          aspect="aspect-[4/5]"
+          position="center"
+          loading="eager"
+        />
+      </div>
+      <div className="group absolute bottom-0 left-[8%] z-20 w-[38%] overflow-hidden rounded-2xl shadow-lg ring-4 ring-paper">
+        <ImageFrame
+          src={left}
+          alt=""
+          aspect="aspect-[4/3]"
+          position="center"
           loading="eager"
         />
       </div>
@@ -464,7 +464,7 @@ export function ProjectMosaic({
           <ImageFrame
             src={hero.src}
             alt={hero.alt}
-            aspect="aspect-[16/10] md:aspect-auto md:h-full min-h-[240px]"
+            aspect="aspect-[16/10] w-full md:aspect-auto md:h-full md:min-h-[240px]"
             position="center-top"
           />
         </div>

@@ -84,7 +84,7 @@ export function VerticalsSection({
           {verticals.map((vertical, index) => (
             <Reveal key={vertical.id}>
               <article className="grid items-start gap-10 lg:grid-cols-2 lg:gap-14 xl:gap-20">
-                <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
+                <div className={`min-w-0 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
                   <VerticalImages vertical={vertical} index={index} />
                 </div>
                 <div

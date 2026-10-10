@@ -55,7 +55,7 @@ export function ServiceHero({
       <div className="pointer-events-none absolute inset-y-0 right-0 w-full bg-gradient-to-l from-mint/40 via-transparent to-transparent lg:w-[65%]" />
 
       <Container className="relative">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16">
           <Reveal>
             <p className="mb-4 text-xs uppercase tracking-[0.24em] text-teal">
               {eyebrow}
@@ -72,7 +72,9 @@ export function ServiceHero({
             </div>
           </Reveal>
 
-          <Reveal delay={0.12}>{renderImages()}</Reveal>
+          <Reveal delay={0.12} className="min-w-0">
+            {renderImages()}
+          </Reveal>
         </div>
       </Container>
     </section>
